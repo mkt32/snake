@@ -13,7 +13,7 @@ node ('Ubutun-app-agent'){
     }
     stage('Post-to-dockerhub') {
     
-     docker.withRegistry('https://registry.hub.docker.com', 'DockerHub') {
+     docker.withRegistry('https://registry.hub.docker.com', 'mkt32') {
             app.push("latest")
         			}
          }
