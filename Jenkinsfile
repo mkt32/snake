@@ -37,7 +37,3 @@ node ('Ubuntu-app-agent'){
         }
  
 }
-
-Ubuntu-app-agent
-
-Ubutun-app-agent
