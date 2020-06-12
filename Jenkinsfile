@@ -3,9 +3,7 @@ node ('Ubutun-app-agent'){
     stage('Cloning Git') {
         /* Let's make sure we have the repository cloned to our workspace */
        checkout scm
-    }  
-    stage('SAST'){
-        build 'SECURITY-SAST-SNYK'
+
     }
 
     
