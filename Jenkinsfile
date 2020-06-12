@@ -8,7 +8,7 @@ node ('Ubutun-app-agent'){
     stage('Build-and-Tag') {
     /* This builds the actual image; synonymous to
          * docker build on the command line */
-        app = docker.build("mkt32/snake")
+        app = docker.build("amrit96/snake")
     }
     stage('Post-to-dockerhub') {
     
