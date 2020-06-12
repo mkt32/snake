@@ -17,7 +17,7 @@ node ('Ubutun-app-agent'){
     stage('Post-to-dockerhub') {
     
      docker.withRegistry('https://registry.hub.docker.com', 'Dockehub') {
-            app.push("test")
+            app.push("latest")
         			}
          }
     stage('SECURITY-IMAGE-SCANNER'){
