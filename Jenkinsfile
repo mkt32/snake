@@ -6,32 +6,26 @@ node ('Ubutun-app-agent'){
    
     }
 
-    
     stage('Build-and-Tag') {
     /* This builds the actual image; synonymous to
          * docker build on the command line */
-        app = docker.build("amrit96/snake")
+        app = docker.build("mkt32/snake")
     }
+    
     stage('Post-to-dockerhub') {
     
-     docker.withRegistry('https://registry.hub.docker.com', 'training_creds') {
+     docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
             app.push("latest")
+         
         			}
-         }
-    stage('SECURITY-IMAGE-SCANNER'){
-        build 'SECURITY-IMAGE-SCANNER-AQUAMICROSCANNER'
+
     }
   
-    
     stage('Pull-image-server') {
     
          sh "docker-compose down"
          sh "docker-compose up -d"	
-      }
     
-    stage('DAST')
-        {
-        build 'SECURITY-DAST-OWASP_ZAP'
         }
  
 }
