@@ -32,6 +32,6 @@ node ('Ubutun-app-agent'){
         }
  stage('DAST')
         {
-        build 'SECURITY-IMAGE-AQUAMICROSCANNER'
+        build 'SECURITY-DAST-OWASP_ZAP'
         }
 }
