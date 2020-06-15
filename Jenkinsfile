@@ -3,7 +3,9 @@ node ('Ubutun-app-agent'){
     stage('Cloning Git') {
         /* Let's make sure we have the repository cloned to our workspace */
        checkout scm
-
+   }  
+    stage('SAST'){
+        build 'SECURITY-SAST-SNYK'
     }
     
     stage('Build-and-Tag') {
@@ -18,6 +20,9 @@ node ('Ubutun-app-agent'){
         			}
          }
   
+    stage('SECURITY-IMAGE-SCANNER'){
+        build 'SECURITY-IMAGE-AQUAMICROSCANNER'
+    }
     
     stage('Pull-image-server') {
     
@@ -25,5 +30,8 @@ node ('Ubutun-app-agent'){
          sh "docker-compose up -d"	
  
         }
- 
+ stage('DAST')
+        {
+        build 'SECURITY-IMAGE-AQUAMICROSCANNER'
+        }
 }
